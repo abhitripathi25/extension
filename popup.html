@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kavalar Eye</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 20px;
+            text-align: center;
+        }
+        #logo {
+            width: 100px;
+            height: 100px;
+            margin-bottom: 20px;
+        }
+        #classifyButton {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        #classifyButton:hover {
+            background-color: #0056b3;
+        }
+        #result {
+            margin-top: 20px;
+            font-size: 18px;
+        }
+        #report {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #1c4ad6; /* Red background color */
+    color: #fff; /* White text color */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    display: none; /* Initially hide the button */
+}
+
+#report:hover {
+    background-color: #235fc8; /* Darker red on hover */
+}
+
+    </style>
+</head>
+<body>
+    <img id="logo" src="images/images/avatar.png" alt="Kavalar Eye Logo">
+    <h1>Kavalar Eye</h1>
+    <p>Click the button below to detect the obscene images in the current tab.</p>
+    <button id="classifyButton">Detect</button>
+    <div id="result"></div>
+    <div id="report">Report</div>
+    <script src="popup.js"></script>
+    <!-- <script src="email.js"></script>
+    <script src="https://smtpjs.com/v3/smtp.js"></script> -->
+</body>
+</html>
