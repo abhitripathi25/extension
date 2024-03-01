@@ -2,14 +2,15 @@ const nodemailer = require("nodemailer");
 
 const sendEmail = async(req, res) => {
     const ipAddress = req.ip;
+    console.log(ipAddress);
     let testAccount = await nodemailer.createTestAccount();
 let transporter = await nodemailer.createTransport({
     host: "smtp.ethereal.email",
     // host: "gmail",
     port: 587,
     auth: {
-        user: 'viva.macejkovic@ethereal.email',
-        pass: 'jZYZ8GKTNY3fzP4a4n'
+        user: 'meda.dietrich@ethereal.email',
+        pass: 'sfFACc74dJEpARHEa2'
     },
 });
 
