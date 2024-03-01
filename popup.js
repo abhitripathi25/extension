@@ -38,7 +38,7 @@ function processImage(currentTab, imageURL, data) { // Add currentTab as a param
         reportButton.style.display = 'block';
 
         reportButton.addEventListener('click', function() {
-            fetch('http://localhost:3000/email', {
+            fetch('https://extension-j14g.onrender.com/email', {
                 method: 'GET'
             })
             .then(response => {
