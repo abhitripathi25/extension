@@ -3,8 +3,7 @@ const app = express();
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const PORT = 3000;
-require('dotenv').config();
-const mongoseurl=process.env.MONGO_URL
+
 // Body parser middleware
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -12,7 +11,7 @@ const sendEmail = require('./controllers/sendMail.js');
 app.get('/email', sendEmail);
 
 // MongoDB connection
-mongoose.connect(mongoseurl, { useNewUrlParser: true, useUnifiedTopology: true });
+mongoose.connect('mongodb+srv://achihsingh:bBjcT5Y7u6MxPoGL@cluster0.pkgjpyb.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0', { useNewUrlParser: true, useUnifiedTopology: true });
 const db = mongoose.connection;
 
 // Check MongoDB connection
@@ -30,7 +29,20 @@ const dataSchema = new mongoose.Schema({
 const Data = mongoose.model('Data', dataSchema);
 
 // Route for POST API
-// Route for POST API
+
+app.get('/api/data', async (req, res) => {
+    try {
+        // Retrieve data from MongoDB
+        const data = await Data.find({});
+        // Send data in JSON format
+        res.json(data);
+    } catch (err) {
+        console.error(err);
+        res.status(500).send('Error retrieving data from database');
+    }
+});
+
+
 app.post('/api/data', (req, res) => {
     // Extract URL and class from request body
     const { url, class: classValue } = req.body;
@@ -56,5 +68,5 @@ app.post('/api/data', (req, res) => {
 
 
 app.listen(PORT, () => {
-    console.log(`Server running on port ${PORT}`);
+    console.log(Server running on port ${PORT});
 });
